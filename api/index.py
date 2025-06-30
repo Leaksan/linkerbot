@@ -6,14 +6,15 @@ app = Flask(__name__)
 LINKS = {
     "Gestion": {
         "Gestion des Fonctionnalités": "https://mariam-241.vercel.app/manage-feature-access",
-    "Gestionnaire Fichiers (Métho)": "https://docfile-mariam-metho.hf.space/gestion/",
-    "Tableau de Bord": "https://mariam-241.vercel.app/dash",
-    "Mode de Vérification": "https://mariam-241.vercel.app/checkmode",
-    "Gestion App Flask (Test)": "https://flask-hello-world-seven-jade.vercel.app/gestion",
-    "Dépôt GitHub (Podcast Global)": "https://github.com/Leaksan/Podcast-global-/tree/main",
-    "Application Auto-Ruby": "https://auto-ruby.vercel.app",
-    "Admin des Cours de Philosophie": "https://mariam-241.vercel.app/admin/philosophy/courses",
-    "Gestionnaire Fichiers (Cours)": "https://docfile-mariam-cours.hf.space/gestion/"
+            "Dashboard admin": "https://mariam-241.vercel.app/dash",
+    "Gestion des abonnés": "https://mariam-241.vercel.app/checkmode",
+    "Gestion méthodologies": "https://docfile-mariam-metho.hf.space/gestion/",
+    "Gestion Cours": "https://docfile-mariam-cours.hf.space/gestion/",
+    "Gestion podcast": "https://flask-hello-world-seven-jade.vercel.app/gestion",
+    "Dépôt GitHub Podcast": "https://github.com/Leaksan/Podcast-global-/tree/main",
+    " Gen fiche de gym": "https://auto-ruby.vercel.app",
+    "Cours de Philosophie pour gen type 1": "https://mariam-241.vercel.app/admin/philosophy/courses",
+    
     },
     "Outils": {
         "Figma": "https://figma.com",
