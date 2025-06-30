@@ -17,7 +17,6 @@ LINKS = {
     
     },
     "Outils": {
-       {
     "Google AI Studio": "https://aistudio.google.com/app/prompts/new_chat",
     "Replit": "https://replit.com/login?source=home&goto=%2F~",
     "Claude AI": "https://claude.ai/new",
@@ -32,7 +31,6 @@ LINKS = {
     "Convertio": "https://convertio.co/fr/",
     "Sketchfab": "https://sketchfab.com/carmenvillagra1972/likes",
     "iLoveIMG": "https://www.iloveimg.com/compress-image"
-}
     },
     "Apprentissage": {
         "freeCodeCamp": "https://freecodecamp.org",
