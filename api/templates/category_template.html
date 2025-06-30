@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category_name }} - Mes Liens Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <a href="/" class="text-blue-600 hover:text-blue-800 mr-4">
+                        <i class="fas fa-arrow-left text-xl"></i>
+                    </a>
+                    <div class="flex items-center">
+                        {% if category_name == 'Développement' %}
+                            <i class="fas fa-code text-blue-600 text-3xl mr-3"></i>
+                        {% elif category_name == 'Outils' %}
+                            <i class="fas fa-tools text-green-600 text-3xl mr-3"></i>
+                        {% elif category_name == 'Apprentissage' %}
+                            <i class="fas fa-graduation-cap text-purple-600 text-3xl mr-3"></i>
+                        {% elif category_name == 'Réseaux Sociaux' %}
+                            <i class="fas fa-users text-pink-600 text-3xl mr-3"></i>
+                        {% elif category_name == 'Divertissement' %}
+                            <i class="fas fa-gamepad text-orange-600 text-3xl mr-3"></i>
+                        {% else %}
+                            <i class="fas fa-folder text-gray-600 text-3xl mr-3"></i>
+                        {% endif %}
+                        <h1 class="text-3xl font-bold text-gray-900">{{ category_name }}</h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">
+                        {{ category_links | length }} liens
+                    </span>
+                    <a href="/" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-home mr-2"></i>
+                        Accueil
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {% if not category_links %}
+        <!-- Empty State -->
+        <div class="text-center py-16">
+            <i class="fas fa-folder-open text-gray-400 text-6xl mb-4"></i>
+            <h2 class="text-2xl font-bold text-gray-700 mb-2">Catégorie non trouvée</h2>
+            <p class="text-gray-600 mb-6">La catégorie "{{ category_name }}" n'existe pas ou est vide.</p>
+            <a href="/" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Retour à l'accueil
+            </a>
+        </div>
+        {% else %}
+        <!-- Search Bar -->
+        <div class="mb-8">
+            <div class="relative max-w-md mx-auto">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Rechercher dans {{ category_name }}..." 
+                    class="w-full px-4 py-3 pl-12 pr-4 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-md"
+                >
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for name, url in category_links.items() %}
+            <div class="link-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" data-name="{{ name.lower() }}">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-external-link-alt text-white text-lg"></i>
+                        </div>
+                        <div class="text-right">
+                            <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">{{ name }}</h3>
+                    <p class="text-gray-600 text-sm mb-4 truncate">{{ url }}</p>
+                    
+                    <div class="flex items-center justify-between">
+                        <a 
+                            href="{{ url }}" 
+                            target="_blank" 
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                        >
+                            <span class="mr-2">Visiter</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <button 
+                            onclick="copyToClipboard('{{ url }}')" 
+                            class="text-gray-500 hover:text-blue-600 transition-colors p-2"
+                            title="Copier le lien"
+                        >
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Category Stats -->
+        <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                <i class="fas fa-chart-bar text-blue-600 mr-2"></i>
+                Statistiques de la catégorie
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-3xl font-bold text-blue-600">{{ category_links | length }}</div>
+                    <div class="text-sm text-gray-600">Liens totaux</div>
+                </div>
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-3xl font-bold text-green-600">
+                        {{ category_links.values() | list | length }}
+                    </div>
+                    <div class="text-sm text-gray-600">Sites uniques</div>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-600">{{ category_name }}</div>
+                    <div class="text-sm text-gray-600">Catégorie</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="mt-8 flex justify-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 flex items-center space-x-4">
+                <button 
+                    onclick="openAllLinks()" 
+                    class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors flex items-center"
+                >
+                    <i class="fas fa-external-link-alt mr-2"></i>
+                    Ouvrir tous les liens
+                </button>
+                <button 
+                    onclick="exportLinks()" 
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center"
+                >
+                    <i class="fas fa-download mr-2"></i>
+                    Exporter
+                </button>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-blue-600 hover:text-blue-800 text-sm">
+                        <i class="fas fa-home mr-1"></i>
+                        Accueil
+                    </a>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-600 text-sm">{{ category_name }}</span>
+                </div>
+                <p class="text-gray-600 text-sm">
+                    <i class="fas fa-heart text-red-500 mr-1"></i>
+                    Gestionnaire de liens personnel
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <i class="fas fa-check mr-2"></i>
+        <span id="toastMessage">Lien copié !</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const linkCards = document.querySelectorAll('.link-card');
+            
+            linkCards.forEach(card => {
+                const name = card.dataset.name;
+                const matches = name.includes(searchTerm);
+                
+                if (matches || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                showToast('Lien copié dans le presse-papiers !');
+            }, function(err) {
+                showToast('Erreur lors de la copie', 'error');
+            });
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 z-50 ${
+                type === 'error' ? 'bg-red-600' : 'bg-green-600'
+            } text-white`;
+            
+            toast.style.transform = 'translateX(0)';
+            
+            setTimeout(() => {
+                toast.style.transform = 'translateX(100%)';
+            }, 3000);
+        }
+
+        // Open all links
+        function openAllLinks() {
+            const links = {{ category_links.values() | list | tojson }};
+            if (confirm(`Êtes-vous sûr de vouloir ouvrir ${links.length} liens ?`)) {
+                links.forEach(url => {
+                    window.open(url, '_blank');
+                });
+                showToast(`${links.length} liens ouverts !`);
+            }
+        }
+
+        // Export links
+        function exportLinks() {
+            const data = {{ category_links | tojson }};
+            const dataStr = JSON.stringify(data, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `${('{{ category_name }}').toLowerCase().replace(' ', '_')}_links.json`;
+            link.click();
+            
+            showToast('Liens exportés !');
+        }
+
+        // Animation on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.link-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
