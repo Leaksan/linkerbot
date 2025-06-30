@@ -17,11 +17,22 @@ LINKS = {
     
     },
     "Outils": {
-        "Figma": "https://figma.com",
-        "Notion": "https://notion.so",
-        "Trello": "https://trello.com",
-        "Slack": "https://slack.com",
-        "Discord": "https://discord.com"
+       {
+    "Google AI Studio": "https://aistudio.google.com/app/prompts/new_chat",
+    "Replit": "https://replit.com/login?source=home&goto=%2F~",
+    "Claude AI": "https://claude.ai/new",
+    "ChatGPT": "https://chatgpt.com",
+    "Grok": "https://grok.com/chat/982dd977-71d3-4a64-a1dd-5b84a6557ac8",
+    "DeepSeek Chat": "https://chat.deepseek.com",
+    "Civitai": "https://civitai.com",
+    "Kling AI": "https://klingai.com/global/image-to-video/frame-mode/274498562505890",
+    "Mixamo": "https://www.mixamo.com/#/?limit=96&page=8",
+    "Plask AI": "https://motion.plask.ai/scene/51061e0a-cca0-4ee1-8cff-abca44e381ee",
+    "Nero AI Image Upscaler": "https://ai.nero.com/image-upscaler",
+    "Convertio": "https://convertio.co/fr/",
+    "Sketchfab": "https://sketchfab.com/carmenvillagra1972/likes",
+    "iLoveIMG": "https://www.iloveimg.com/compress-image"
+}
     },
     "Apprentissage": {
         "freeCodeCamp": "https://freecodecamp.org",
