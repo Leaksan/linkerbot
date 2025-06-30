@@ -4,12 +4,16 @@ app = Flask(__name__)
 
 # Dictionnaire des liens intégré directement dans le code
 LINKS = {
-    "Développement": {
-        "GitHub": "https://github.com",
-        "Stack Overflow": "https://stackoverflow.com",
-        "MDN Web Docs": "https://developer.mozilla.org",
-        "CodePen": "https://codepen.io",
-        "VS Code": "https://code.visualstudio.com"
+    "Gestion": {
+        "Gestion des Fonctionnalités": "https://mariam-241.vercel.app/manage-feature-access",
+    "Gestionnaire Fichiers (Métho)": "https://docfile-mariam-metho.hf.space/gestion/",
+    "Tableau de Bord": "https://mariam-241.vercel.app/dash",
+    "Mode de Vérification": "https://mariam-241.vercel.app/checkmode",
+    "Gestion App Flask (Test)": "https://flask-hello-world-seven-jade.vercel.app/gestion",
+    "Dépôt GitHub (Podcast Global)": "https://github.com/Leaksan/Podcast-global-/tree/main",
+    "Application Auto-Ruby": "https://auto-ruby.vercel.app",
+    "Admin des Cours de Philosophie": "https://mariam-241.vercel.app/admin/philosophy/courses",
+    "Gestionnaire Fichiers (Cours)": "https://docfile-mariam-cours.hf.space/gestion/"
     },
     "Outils": {
         "Figma": "https://figma.com",
