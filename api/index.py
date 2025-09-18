@@ -9,6 +9,7 @@ LINKS = {
             "Dashboard admin": "https://mariam-241.vercel.app/dash",
     "Gestion des abonnés": "https://mariam-241.vercel.app/checkmode",
         "admin chats": "https://docfile-chatm2.hf.space/admin",
+        "admin dissertation": "https://docfile-flasksite1.hf.space/gestion",
     "Gestion méthodologies": "https://docfile-mariam-metho.hf.space/gestion/",
     "Gestion Cours": "https://docfile-mariam-cours.hf.space/gestion/",
     "Gestion podcast": "https://flask-hello-world-seven-jade.vercel.app/gestion",
@@ -76,4 +77,5 @@ def category_links(category_name):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
 
