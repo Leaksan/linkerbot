@@ -7,6 +7,8 @@ LINKS = {
     "Gestion": {
         "Gestion des Fonctionnalités": "https://mariam-241.vercel.app/manage-feature-access",
             "Dashboard admin": "https://mariam-241.vercel.app/dash",
+        "paiement": "https://mariam-price.vercel.app/",
+        "3jours": "https://mariam-price.vercel.app/check",
         "notif setter": "https://myranotif.vercel.app/",
     "Gestion des abonnés": "https://mariam-241.vercel.app/checkmode",
         "admin chats": "https://docfile-chatm2.hf.space/admin1",
@@ -78,6 +80,7 @@ def category_links(category_name):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
 
 
 
