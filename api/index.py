@@ -6,17 +6,17 @@ app = Flask(__name__)
 LINKS = {
     "Gestion": {
         "Gestion des Fonctionnalités": "https://mariam-241.vercel.app/manage-feature-access",
+        "Gestion méthodologies": "https://docfile-mariam-metho.hf.space/admin",
             "Dashboard admin": "https://mariam-241.vercel.app/dash",
         "paiement": "https://mariam-price.vercel.app/",
         "3jours": "https://mariam-price.vercel.app/check",
+        "Gestion podcast": "https://flask-hello-world-seven-jade.vercel.app/gestion",
+    "Dépôt GitHub Podcast": "https://github.com/Leaksan/Podcast-global-/tree/main",
         "notif setter": "https://myranotif.vercel.app/",
     "Gestion des abonnés": "https://mariam-241.vercel.app/checkmode",
         "admin chats": "https://docfile-chatm2.hf.space/admin1",
         "admin dissertation": "https://docfile-testpdf.hf.space/admin1",
-    "Gestion méthodologies": "https://docfile-mariam-metho.hf.space/admin",
     "Gestion Cours": "https://docfile-mariam-cours.hf.space/gestion/",
-    "Gestion podcast": "https://flask-hello-world-seven-jade.vercel.app/gestion",
-    "Dépôt GitHub Podcast": "https://github.com/Leaksan/Podcast-global-/tree/main",
     " Gen fiche de gym": "https://auto-ruby.vercel.app",
     "Cours de Philosophie pour gen type 1": "https://mariam-241.vercel.app/admin/philosophy/courses",
     
@@ -80,6 +80,7 @@ def category_links(category_name):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
 
 
 
